@@ -23,7 +23,6 @@
                                         <th>No</th>
                                         <th>Tanggal</th>
                                         <th>Nama Barang</th>
-                                        <th>Pemilik</th>
                                         <th>Deskripsi</th>
                                         <th>Jumlah</th>
                                         <th>Stok Akhir</th>
@@ -37,9 +36,6 @@
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td>{{ $item->created_at->translatedFormat('d/m/Y') }}</td>
                                             <td>{{ $item->product->nama }}</td>
-                                            <td>
-                                                {{ $item->product->user->name }}
-                                            </td>
                                             <td>{{ $item->product->description }}</td>
                                             <td>{{ $item->jumlah }}</td>
                                             <td>{{ $item->product->stok }}</td>
