@@ -19,6 +19,7 @@ use App\Http\Controllers\ProductOutController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UnitController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +43,9 @@ Auth::routes();
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
-Route::prefix('dashboard')->group(function () {
+Route::middleware('auth')->prefix('dashboard')->group(function () {
+
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     //* Section Payment
     Route::get('/payment', [OrderDetailController::class, 'checkUserPayment'])->middleware('adminKaryawan')->name('payment.check');
     Route::put('/payment/{orderdetails:id}', [OrderDetailController::class, 'changeStatusPayment'])->middleware('adminKaryawan')->name('payment.change');

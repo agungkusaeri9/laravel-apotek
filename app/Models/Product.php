@@ -13,7 +13,6 @@ class Product extends Model
 
     protected $fillable = [
         'kode_barang',
-        'user_id',
         'category_id',
         'nama',
         'harga',
@@ -32,10 +31,10 @@ class Product extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function unit()
-    {
-        return $this->belongsTo(Unit::class);
-    }
+    // public function unit()
+    // {
+    //     return $this->belongsTo(Unit::class);
+    // }
 
     public function category()
     {

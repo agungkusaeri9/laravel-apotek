@@ -18,13 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role_id != 1) {
-            $products = Product::with('User')
-                ->where('user_id', Auth::user()->id)->get();
-        } else {
-            $products = Product::with('User')->get();
-        }
-
+        $products = Product::with('User')->get();
         return view('dashboard.product.index', [
             'products' => $products
         ]);
@@ -59,7 +53,6 @@ class ProductController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'description' => 'required',
-            'telfon' => 'required',
             'stok_minimal' => 'required',
             'stok_awal' => 'required',
             'diskon' => 'nullable',
@@ -69,9 +62,6 @@ class ProductController extends Controller
         $diskon = ($request->diskon / 100) * $request->harga;
 
         $validatedData['diskon'] = $request->harga - $diskon;
-        $validatedData['user_id'] = Auth::user()->id;
-
-
 
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('images', 'public');
@@ -131,7 +121,6 @@ class ProductController extends Controller
             'nama' => 'required',
             'harga' => 'required',
             'description' => 'required',
-            'telfon' => 'required',
             'stok_minimal' => 'required',
             'image' => 'nullable',
             'unit_id' => ['required']

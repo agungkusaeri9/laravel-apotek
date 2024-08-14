@@ -27,7 +27,6 @@
                                         <th>Kategori</th>
                                         <th>Satuan</th>
                                         <th>Harga</th>
-                                        <th>Pemilik</th>
                                         <th>Stok Minimal</th>
                                         <th>Stok</th>
                                         <th>Harga Diskon</th>
@@ -42,9 +41,6 @@
                                             <td>{{ $product->category->nama }}</td>
                                             <td>{{ $product->unit->nama ?? '-' }}</td>
                                             <td>Rp {{ $product->harga }}</td>
-                                            <td>
-                                                {{ $product->user->name }}
-                                            </td>
                                             <td>{{ $product->stok_minimal }}</td>
                                             <td>
                                                 @if ($product->stok_minimal < $product->stok)

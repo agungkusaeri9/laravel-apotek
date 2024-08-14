@@ -98,18 +98,6 @@
                                     </div>
                                 @enderror
                             </div>
-
-                            <div class="form-group">
-                                <label for="telfon">Telephone</label>
-                                <input type="number" name="telfon"
-                                    class="form-control @error('telfon') is-invalid @enderror"
-                                    placeholder="gunakan 62 tanpa +" required>
-                                @error('telfon')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                             <div class="form-group">
                                 <label for="description">Deskripsi Barang</label>
                                 <textarea class="form-control @error('description') is-invalid @enderror" name="description" required></textarea>
